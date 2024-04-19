@@ -1,0 +1,5 @@
+Find out the correct password for each of the trolls
+
+You may use IDA, Ghidra and gdb
+You may not use IDA's and Ghidra's decompilers
+Remember to document your work in words or in code

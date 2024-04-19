@@ -1,0 +1,28 @@
+You are tasked with writing a python script that patches ELF files.
+You should use pyelftools for this purpose (a python library for reading and parsing ELF files)
+Similar scripts exist already, so don't use them please. The point is to parse the ELF yourself to some extent.
+
+The script should be able to run with command line arguments:
+It should accept as command line arguments: an input ELF filename, an output ELF filename and a config filename.
+It would be even better if, in addition, the script can be imported as a patcher class for use in other scripts.
+
+The config filename should be in the following format:
+one line per patch:
+
+	symbol_name offset_from_symbol hex_bytes
+Where:
+
+	symbol_name: A symbol to patch
+	offset_from_symbol: Offset in bytes from symbol to start patching from (can be positive or negative, preferrably hexadecimal) 
+	hex_bytes: Hexadecimal representation of the patch
+
+For example, if the input ELF file contains a symbol named "password" that points to an ASCII string with value "This is the wrong password\0", after the following patch line
+
+	password +0xC 7269676874
+
+In the output ELF, the string "password" will now be "This is the right password\0"
+
+A tester ELF file is provided for your convenience. The file has a (global unsigned int) variable named "patchme" that's initialized to 0x55555555. Your goal is to change it to 0xAAAAAAAA
+
+
+

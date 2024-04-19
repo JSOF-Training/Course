@@ -1,0 +1,4 @@
+So easier is just overwriting the DT_NEEDED entries str with loadme.so ('loadme' fits instead of 'liblog' in the dynstr section and liblog is not really needed)
+
+For harder: change DT_DEBUG to DT_NEEDED (or DT_FILTER to DT_NEEDED if no DT_DEBUG), overwrite something in .comment section with full path of loadme.so, edit DT_STRSZ to be large enough to reach this string from .dynstr, and insert corret offset as value of DT_DEBUG overwritten to DT_NEEDED value). Note .comment section has to appear for this solution (and DT_DEBUG or FILTER), even though there is probably something else to overwrite, but it may be dead code uneditable by the instructions. Note readelf would have a problem with the fake DT_NEEDED entry but the loader doesn't (make sure this is also in ubuntu and wsl I guess).  
+

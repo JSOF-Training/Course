@@ -1,0 +1,5 @@
+Your goal is to patch the executable with minimal changes (minimal changes of bytes possible).
+More specifically, a good solution should be a minimal patch that produces the output "Nope", and then another minimal patch (to the just patched executable) that produces the reward output.
+Then you should enjoy the reward.
+
+Note: a two byte patch (that is the final executable having 2 different bytes) should be enough.

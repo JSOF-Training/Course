@@ -1,0 +1,7 @@
+Peel the onion, layer by layer
+
+All tools are allowed, including decompilers
+Tip: work smart, not hard.
+You may patch the file for research if you want, just make sure that when you receive the success message it was done on an unpatched ELF executable.
+
+

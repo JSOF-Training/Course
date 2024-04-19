@@ -1,0 +1,2 @@
+Outsmart the dragon.
+As before, you may use IDA, Ghidra and standalone GDB, no decompilers.

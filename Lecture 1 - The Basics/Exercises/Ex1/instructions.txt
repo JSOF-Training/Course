@@ -1,0 +1,38 @@
+Use the assembly examples in the Examples folder as a basis for these questions
+You may invoke your assembly functions from C code for testing
+
+*******************************************************************
+            1. Fibonacci 
+*******************************************************************
+Fix the Fibonacci counting code from class (in 32-bit assembly)
+
+Reminder:
+	In class we saw code that computed the Fibonacci sequence
+	For a certain index of the Fibonacci sequence that was given in eax the code returned the Fibonacci number of that index in eax
+	For indices 1,2 the code returned 1,2 respectively
+	The code behaved in a weird way for index 0
+
+Your code should:
+	Start at index 0 as it is the correct starting index
+	Assume the Fibonacci number at index 0 is 0 and at index 1 is 1
+	Be wrapped neatly in a function conforming with gcc x86 32-bit calling conventions (unlike the code from class)
+	[e.g. unsigned int Fibonacci(unsigned int n);]
+
+
+********************************************************************
+            2. ADD and MUL
+********************************************************************
+2a. Create a function (in x86_64 assembly) that computes the sum of two 64-bit integers 
+e.g.	long add(long  a, long  b);
+WHAT IS THE CATCH?
+Don't use the ADD, SUB instructions and their derivatives (ask the instructors if you're unsure which instructions you can use)
+Set the status bits to their correct state as if the ADD instruction was invoked.
+
+* ADD, SUB may be used to create and restore a stack frame if you want (you don't have to)
+
+2b. Emulate the MUL instruction for 32-bit integers (MUL EAX, ECX) without using MUL, ADD, SUB and their derivatives
+	You may invoke the addition function that you wrote in Q2a
+	Make sure the registers and flags after execution are the same as they would be after MUL EAX, ECX	
+     
+
+2c. Explain (no need to write actual assembly) how you would implement a function that calculates the quotient and remainder of division of two unsigned integers (e.g. for 7/3 the quotient is 2 and remainder is 1)

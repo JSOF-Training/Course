@@ -1,0 +1,42 @@
+Please read the entire instruction file before you proceed
+
+In front of you lies an ELF file named "something"
+It has been stripped of symbols, including all internal function names
+However, when the program writes to its log files (on errors or otherwise), sometimes the log entry contains the name of the function that called the logging function
+
+Your mission is as follows:
+0. Open the file in Ghidra or IDA (preferrably Ghidra for reasons that will be explained later)
+1. Identify all the functions that are used for logging debug/error/assert messages etc.
+2. Write a script for Ghidra (or IDA) that, based on calls to these functions, assigns the correct symbol name to each function that calls one of these logging functions
+3. Ensure that all calls to logging functions are now from named functions (correct manually if the script missed some or, better yet, fix your script to handle these cases as well)
+4. Marvel at how many functions are now named and how much easier it would be to reverse-engineer the file now
+
+IMPORTANT REMARKS ABOUT THIS EXERCISE:
+A. Decompilers are allowed
+B. Running and debugging are not strictly forbidden, but they will not add much value. Try to solve the challenge without them
+C. As you may discover after opening the file, it is compiled from a certain open-source project. The point of this exercise is to simulate a program to which you do not have the source files. Therefore you MAY NOT look at the source files or search the internet for the strings and constants you find inside the file. Searching the internet for help about Ghidra/IDA scripting and general help is allowed, of course. After you are done you can look the project up and compare the decompiled binary to the source code, if you wish.
+
+Finally,
+Notes about Ghidra and IDA scripting:
+
+Ghidra
+Ghidra scripts are written natively in Java, but (thankfully) can also be written in Python 2.7 thanks to ghidra's built in Jython interperter.
+One thing to note is that the data types in API function names are based on Java types, so, for example, readInt will always read a 4-byte long integer from program memory and readLong will read an 8-byte integer (even for a 32-bit C program).
+A few resources for scripting in Ghidra:
+	https://deadc0de.re/articles/ghidra-scripting-python.html
+		Where to start and some basic examples
+	https://ghidra.re/ghidra_docs/api/ghidra/program/flatapi/FlatProgramAPI.html
+		Documentation of the flat API that is provided to your script
+		Documentation is for Java but the python version of the API is analogous
+		A copy of https://ghidra.re/ghidra_docs/api/ is also located inside the Ghidra folder on your PC
+	https://github.com/PAGalaxyLab/ghidra_scripts/blob/master/trace_function_call_parm_value.py
+		You may use this script as reference and also use parts of it in your script (to get parameter values from function calls)
+
+IDA
+	Natively IDA uses its own scripting language called IDC. The Pro version also comes with an SDK to compile C plugins.
+	In more recent versions a python interperter (IDAPython) is available in IDA Pro with access to the full IDA API, but not for the free version.
+	IDC has C-like syntax and is partially documented in IDA's help files
+	Unlike IDAPython, it does not have access to IDA's full API, so its capabilities are very limited and it's not recommended to use it
+	If you somehow manage to use IDAPython, the function ida_typeinf.get_arg_addrs can be helpful
+	
+		

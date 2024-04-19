@@ -1,0 +1,7 @@
+Your task is to describe what the function at address 0x400510 does.
+You may only use IDA and Ghidra
+You may not use their decompilers or any debuggers
+You may not run or call the function
+(i.e. you should only use static reverse engineering)
+
+For convenience, the function is referenced in the main function

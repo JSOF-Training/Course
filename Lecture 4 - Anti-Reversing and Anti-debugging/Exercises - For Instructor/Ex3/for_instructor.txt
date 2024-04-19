@@ -1,0 +1,42 @@
+the code is compiled with 
+gcc anti_debugging.c -fPIC -fPIE -s -o ad
+
+unfortunetly the timestamp_check uses xmm assembly for couple of instructions (for calculation on float).
+If you want me to change it i can do it.
+
+the winning string:
+./ad  "**Excelsior**"
+
+For winning in gdb:
+### 0x4008d1 - ptrace_check  
+b * 0x4008d1
+commands 1
+set $rax=0
+c
+end
+###04009A3 - timestamp check
+b * 0x04009A3
+commands 2
+set $pc=0x4009BB
+c
+end
+### 0x400A41 memcmp
+b * 0x400A41
+### 400C53 - hash check
+b * 0x400C53 
+commands 4
+dis 1
+dis 2
+dis 3
+c
+end
+### 400C53 - hash check resume breakpoints
+b * 0x400cdc
+commands 5
+en 1 
+en 2
+en 3
+c
+end
+r
+### here you can watch the parameters for memcmp

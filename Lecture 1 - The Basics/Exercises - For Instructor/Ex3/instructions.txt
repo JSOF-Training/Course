@@ -1,0 +1,13 @@
+Understand and describe the functions at the following addresses:
+(a) 0x8048426
+(b) 0x8048456
+(c) 0x80484db
+
+Take note that this is a 32-bit executable
+
+As previously, you may only use IDA and Ghidra
+You may not use their decompilers or any debuggers
+You may not run or call the function
+(i.e. you should only use static reverse engineering)
+
+For convenience, the functions are referenced in the main function

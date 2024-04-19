@@ -1,0 +1,2 @@
+Decode the bridgekeeper's logic and help anyone with any quest pass the bridge of death.
+As before, you may use IDA, Ghidra and standalone GDB, no decompilers.

@@ -1,0 +1,5 @@
+Patch the ELF file "patchme" such that, when it is run, the following output is shown:
+"Success: This file is valid"
+You may ONLY patch bytes in the .rodata section.
+DO NOT patch the .text section.
+Good luck.

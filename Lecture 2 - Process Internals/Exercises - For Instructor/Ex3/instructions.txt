@@ -1,0 +1,17 @@
+
+patch the executable loader_easier and loader_harder so that they load the shared library loadme.so.
+
+You should patch only the metadata, in the sense that you should not change any of the executable's code.
+
+loader_easier is easier than loader_harder as the names suggest. 
+
+Note: The point of (loader_easer though there is a very simple solution for it, and) loader_harder is to get loadme to load when executing the executable, while leaving the behavior of the executables code the same - If it works, then it's a good solution.
+You do not need to read the loader's code for this, several trials and errors in patching should lead you to a solution.
+
+
+
+
+
+
+
+
