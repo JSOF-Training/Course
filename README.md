@@ -2,6 +2,8 @@
 
 In this repository you'll find all the material for our course.
 
+## Setup
+
 For each of the lectures you'll find:
 
 - Lecture and recitation slides under the folder `Slides`.
@@ -11,3 +13,7 @@ For each of the lectures you'll find:
 - Solutions to the exercises or material used to create the exercise from which it's trivial to find out the solution under the folder `Exercises - For Instructor`.
 
 We may add more material in the future, see `git log` for details.
+
+## Discussions
+
+See our Github Discussions [here](https://github.com/orgs/JSOF-Training/discussions/categories/announcements).
